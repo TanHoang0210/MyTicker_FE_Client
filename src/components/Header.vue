@@ -125,7 +125,7 @@
     line-height: 50px;
   }
   .left-header--control ul li a:hover{
-        background-color: rgb(255, 255, 255,1);
+        background-color: var(--primary-color--hover);
   }
 .header-search{
     display: flex;
@@ -171,13 +171,18 @@
         border-left:none;
         border-radius: 0px 4px 4px 0px;
     }
+    .header-search--button:hover{
+        background-color: var(--primary-color-bold);
+    }
     .header-search--button{
+        width: 100%;
         border: none;
-        height: 95%;
+        height: 100%;
         text-align: center;
         margin: auto;
         color: var(--text-color);
         background-color: var(--primary-color);
+        transition: all 0.2s;
     }
     .header-search--icon{
         width: 16px;
@@ -201,7 +206,7 @@
 .user-control{
     display: flex;
     align-items: center;
-    height: 76px;
+    height: 100%;
     background-color: var(--primary-color);
 }
     .right-header{
@@ -209,6 +214,7 @@
     align-items: center;
     margin-left: auto;
     margin-right: 0px;
+    height: 100%;
     }
     .register-link{
         display: flex;
@@ -224,7 +230,7 @@
     margin-left: 20px;
     }
     .register-link:hover{
-            background-color: #fff;
+            background-color: var(--primary-color--hover);
     }
     .language-control{
         display: flex;

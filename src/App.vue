@@ -34,7 +34,8 @@ body{
 }
 :root {
     --primary-color: #FDF9F7;
-    --primary-color--hover: #FDF9F7;
+    --primary-color-bold:rgb(226, 168, 140);
+    --primary-color--hover: rgb(0,0,0,0.1);
     --text-color: #111;
 }
 </style>

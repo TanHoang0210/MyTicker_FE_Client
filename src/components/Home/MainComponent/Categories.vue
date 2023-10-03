@@ -24,12 +24,15 @@ export default {
 </script>
 <style>
 .main__footer{
-    width: 100%;
+    margin: auto;
+    width: 80%;
     display: flex;
+    padding: 30px 0;
 }
 .main__footer--inner{
     width: 100%;
     display: flex;
+    border: 1px var(--primary-color-bold);
 }
 .more--btn{
     width: 30%;
@@ -42,21 +45,25 @@ export default {
 }
 .main__footer--btn{
     width: 100%;
-    background-color: var(--text-color)!important;
+    background-color: var(--primary-color-bold)!important;
     color: var(--primary-color) !important;
     font-weight: normal !important;
     font-size: 1.5rem !important;
     border-radius: 2px !important;
+    border: 1px var(--primary-color-bold);
 }
 .main__footer--btn:hover{
     background-color: var(--primary-color)!important;
-    color: var(--text-color) !important;
+    color: var(--primary-color-bold) !important;
+}
+.main__footer--btn{
+    border: 1px solid var(--primary-color-bold) !important;
 }
 .more--btn::before{
     content: "";
     width: 100%;
-    background-color: var(--primary-color);
-    height: 2px;
+    background-color: var(--primary-color-bold);
+    height: 1px;
     position: absolute;
     bottom: 50%;
     left: -110%;
@@ -65,8 +72,8 @@ export default {
 .more--btn::after{
     content: "";
     width: 100%;
-    background-color: var(--primary-color);
-    height: 2px;
+    background-color: var(--primary-color-bold);
+    height: 1px;
     position: absolute;
     bottom: 50%;
     right: -110%;

@@ -62,7 +62,7 @@ export default {
 }
 .banner__bottom--border{
     width: 100%;
-    background-color: var(--text-color);
+    background-color: var(--primary-color-bold);
     position: absolute;
     height: 1px;
     bottom: 15px;
@@ -71,7 +71,7 @@ export default {
 .home__banner--inner::before{
     content: "";
     width: 40px;
-    background-color: var(--text-color);
+    background-color: var(--primary-color-bold);
     height: 1px;
     position: absolute;
     left: -48px;
@@ -81,7 +81,7 @@ export default {
 .home__banner--inner::after{
     content: "";
     width: 40px;
-    background-color: var(--text-color);
+    background-color: var(--primary-color-bold);
     height: 1px;
     position: absolute;
     right: -48px;

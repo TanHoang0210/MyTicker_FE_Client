@@ -62,11 +62,13 @@ export default{
 <style>
 .main{
 margin-bottom: 24px;
+position: relative;
 }
 .home__container{
     margin: 0px auto;
     display: flex;
-    min-height: 100%;
+    min-height: 80%;
+    height: 80%;
     flex-direction: column;
 }
 .main__container{
