@@ -1,0 +1,40 @@
+<template>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <router-view/>
+  </div>
+  </body>
+  </html>
+</template>
+<script>
+</script>
+<style>
+body{
+  margin: 0px;
+    font-family: ProximaNova, sans-serif;
+    font-weight: normal;
+    min-height: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+#app{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fff
+  
+}
+:root {
+    --primary-color: #FDF9F7;
+    --primary-color--hover: #FDF9F7;
+    --text-color: #111;
+}
+</style>
