@@ -5,7 +5,6 @@
       id="carousel-1"
       v-model="slide"
       :interval="4000"
-      controls
       indicators
       background="transparent"
       color="#ccc"
@@ -16,14 +15,18 @@
       <template #img>
           <router-link :to="{path:'/event',query:{id: slide.id}}" class="slide__link">
           <img style="display: flex;margin: auto; border: 1px solid transparent; border-radius: 10px 10px;"
-            class="d-block img-fluid w-100"
+            class="d-block"
             :src="slide.img"
             alt="image slot"
             >
           </router-link>
           </template>
       </b-carousel-slide>
-</b-carousel>
+    </b-carousel>
+    <div style="position: absolute; width: 100%; left: 0;">
+      <a href="#" role="button" @click="prev" aria-controls="carousel-1___BV_inner_" class="carousel-control-prev"><span aria-hidden="false" class="carousel-control-prev-icon"></span><span class="sr-only">Previous slide</span></a>
+      <a href="#" role="button" @click="next" aria-controls="carousel-1___BV_inner_" class="carousel-control-next"><span aria-hidden="true" class="carousel-control-next-icon"></span><span class="sr-only">Next slide</span></a>
+    </div>
 </div>
 </template>
 <script>
@@ -82,9 +85,11 @@ export default {
   display: block;
   width: 100% !important;
 }
-.slide__link img{
-  border-radius: 0px !important;
-  width: 100% !important;
+@media only screen and (min-width: 992px){
+  .slide__link img{
+    border-radius: 0px !important;
+    width: 880px !important;
+  }
 }
 
 .carousel-control-prev,.carousel-control-next {

@@ -92,11 +92,11 @@
     display: flex;
     -webkit-box-align: center;
     align-items: center;
-    margin-right: 32px;
+    margin-right: 20px;
     height: 100%;
   }
   .left-header--logo img{
-    height: 50px;
+    width: 120px;
   }
   .left-header--control{
     height: 100%;
@@ -125,7 +125,7 @@
     line-height: 50px;
   }
   .left-header--control ul li a:hover{
-        background-color: var(--primary-color--hover);
+        background-color: var(--primary-color-bold);
   }
 .header-search{
     display: flex;
@@ -230,7 +230,7 @@
     margin-left: 20px;
     }
     .register-link:hover{
-            background-color: var(--primary-color--hover);
+            background-color: var(--primary-color-bold);
     }
     .language-control{
         display: flex;
