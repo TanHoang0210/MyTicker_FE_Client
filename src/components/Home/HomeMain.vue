@@ -72,9 +72,6 @@ position: relative;
     flex-direction: column;
 }
 .main__container{
-    /* max-width: 1248px; */
-    padding-left: 16px;
-    padding-right: 16px;
 }
 @media (max-width: 1200px) { 
     .main__container{

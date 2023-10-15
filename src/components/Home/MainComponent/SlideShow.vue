@@ -4,7 +4,6 @@
     ref="myCarousel1"
       id="carousel-1"
       v-model="slide"
-      :interval="4000"
       indicators
       background="transparent"
       color="#ccc"
@@ -23,7 +22,7 @@
           </template>
       </b-carousel-slide>
     </b-carousel>
-    <div style="position: absolute; width: 100%; left: 0;">
+    <div style="position: absolute; width: 100%; left: 0; top: 25vh;">
       <a href="#" role="button" @click="prev" aria-controls="carousel-1___BV_inner_" class="carousel-control-prev"><span aria-hidden="false" class="carousel-control-prev-icon"></span><span class="sr-only">Previous slide</span></a>
       <a href="#" role="button" @click="next" aria-controls="carousel-1___BV_inner_" class="carousel-control-next"><span aria-hidden="true" class="carousel-control-next-icon"></span><span class="sr-only">Next slide</span></a>
     </div>
@@ -35,9 +34,14 @@ export default {
     data() {
       return {
         slide: this.startSlide(),
-        sliding: null
+        sliding: null,
+        imgWidth:'880px'
       }
-    },
+    },computed: {
+      transformCarousel: function () {
+      return this.width;
+    }
+  },
     methods: {
       onSlideStart(slide) {
         this.sliding = true
@@ -64,8 +68,8 @@ export default {
 .carousel-inner{
   width: 100% !important;
   margin: auto !important;
-  overflow: hidden !important;
   display: flex !important;
+  overflow: unset !important;
 }
 .carousel{
     display:flex;
@@ -101,22 +105,22 @@ export default {
   z-index: 0 !important;
 }
 .carousel-control-prev{
-  left: 10px !important;
+  left: 5px !important;
   z-index: 0!important;
   background-color:#ead5cc !important;
   transition: 0.3s !important;
-  opacity: 0.5 !important;
+  opacity: 0.8 !important;
 }
 .carousel-control-next{
-  right: 10px !important;
+  right: 5px !important;
   z-index: 0!important;
   background-color: #ead5cc !important;
   transition: 0.3s !important;
-  opacity: 0.5 !important;
+  opacity: 0.8 !important;
 }
 .carousel-control-prev:hover,
 .carousel-control-next:hover{
-  opacity: 0.8 !important ;
+  opacity: 1 !important ;
 }
 .carousel-indicators{
   bottom: -60px !important;
@@ -127,5 +131,9 @@ export default {
   height: 10px !important;
   margin: 0 5px !important;
   border-radius:50% !important;
+}
+
+.carousel{
+  transform:translate( calc(-2320px) );
 }
 </style>

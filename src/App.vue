@@ -14,11 +14,12 @@
   </html>
 </template>
 <script>
+
 </script>
 <style>
 body{
-  margin: 0px;
-    font-family: ProximaNova, sans-serif;
+    margin: 0px;
+    font-family: "Candara" !important;
     font-weight: normal;
     min-height: 100%;
     overflow: auto;
@@ -36,6 +37,7 @@ body{
     --primary-color: #FDF9F7;
     --primary-color-bold:rgb(226, 168, 140);
     --primary-color--hover: rgb(0,0,0,0.1);
-    --text-color: #111;
+    --text-color: #555;
+    --carousel-width: 880px;
 }
 </style>
