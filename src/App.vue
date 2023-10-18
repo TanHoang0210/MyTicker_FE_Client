@@ -39,5 +39,6 @@ body{
     --primary-color--hover: rgb(0,0,0,0.1);
     --text-color: #555;
     --carousel-width: 880px;
+    --primary-color-hover-bold:rgb(188, 101, 60);
 }
 </style>

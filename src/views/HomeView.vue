@@ -14,8 +14,9 @@ export default {
 <template>
   <div>
     <Header/>
-    <!-- <NavBar/> -->
-    <HomeMain/>
+    <div>
+      <HomeMain/>
+    </div>
     <HomeFooter/>
   </div>
 </template>

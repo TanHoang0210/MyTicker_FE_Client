@@ -6,20 +6,27 @@
             </router-link>
             <div class="left-header--control">
                 <b-nav class="left-header--list">
-                    <b-nav-item class="left-header--item">Sự Kiện</b-nav-item>
-                    <b-nav-item class="left-header--item">Thể Loại</b-nav-item>
-                    <b-nav-item class="left-header--item">Sân vận động</b-nav-item>
-                    <b-nav-item class="left-header--item">Về Chúng Tôi</b-nav-item>
+                    <b-nav-item class="left-header--item">
+                        <router-link style="text-decoration: none;" to="/event">
+                            Sự kiện
+                        </router-link>
+                    </b-nav-item>
+                    <b-nav-item class="left-header--item">
+                        <router-link style="text-decoration: none;" to="/event">
+                            Thể loại
+                        </router-link>
+                    </b-nav-item>
+                    <b-nav-item class="left-header--item">
+                        <router-link style="text-decoration: none;" to="/event">
+                            Sân vận động
+                        </router-link>
+                    </b-nav-item>
+                    <b-nav-item class="left-header--item">
+                        <router-link style="text-decoration: none;" to="/event">
+                            Về chúng tôi
+                        </router-link>
+                    </b-nav-item>
                 </b-nav>
-            </div>
-            <div class="category-list">
-                <b-list-group>
-                    <b-list-group-item>Cras justo odio</b-list-group-item>
-                    <b-list-group-item>Dapibus ac facilisis in</b-list-group-item>
-                    <b-list-group-item>Morbi leo risus</b-list-group-item>
-                    <b-list-group-item>Porta ac consectetur ac</b-list-group-item>
-                    <b-list-group-item>Vestibulum at eros</b-list-group-item>
-                </b-list-group>
             </div>
         </div>
         <div class="right-header">
@@ -38,10 +45,43 @@
                 </div>
             </div>
             <div class="user-control">
-                <router-link class="register-link" style="text-decoration: none; color: #555;" to="/login">
+                <router-link v-if="isLogin" class="register-link" style="text-decoration: none; color: #555;" to="/login">
                     <b-icon style="margin-right: 5px;" icon="person-fill"></b-icon>
                     Đăng Nhập
                 </router-link>
+                <div v-else class="user-info">
+                    <b-icon style="margin-right: 5px;" icon="person-fill"></b-icon>
+                    {{ user.userName }}
+                    <div class="user-action">
+                        <ul class="user-action-list">
+                            <li class="user-action-item">
+                                <router-link class="user-action-link" style="text-decoration: none;" to="/event">
+                            Thông tin tài khoản
+                                </router-link>
+                            </li>
+                            <li class="user-action-item">
+                                <router-link class="user-action-link" style="text-decoration: none;" to="/event">
+                            Vé của bạn
+                                </router-link>
+                            </li>
+                            <li class="user-action-item">
+                                <router-link class="user-action-link" style="text-decoration: none;" to="/event">
+                            Vé chuyển nhượng
+                                </router-link>
+                            </li>
+                            <li class="user-action-item">
+                                <router-link class="user-action-link" style="text-decoration: none;" to="/event">
+                            Vé trả
+                                </router-link>
+                            </li>
+                            <li class="user-action-item">
+                                <router-link class="user-action-link" style="text-decoration: none;" to="/event">
+                            Đăng xuất
+                                </router-link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="language-control">
                 <div class="language-control--item">
@@ -71,7 +111,26 @@ export default {
     name: 'Header',
     data: () => {
         return {
-            isActive: false
+            categories:[
+                {
+                    id:1,
+                    name:"Thể thao"
+                },
+                {
+                    id:2,
+                    name:"Buổi hòa nhạc"
+                },
+                {
+                    id:3,
+                    name:"Nghệ thuật sân khấu"
+                }
+            ],
+            isActive: false,
+            user:{
+                userId:1,
+                userName:"Nhat Tan",
+            },
+            isLogin:false
         }
     },
     methods: {
@@ -97,7 +156,6 @@ export default {
     top: 0px;
 }
 
-//left-header
 .left-header {
     display: flex;
     -webkit-box-align: center;
@@ -114,19 +172,16 @@ export default {
     margin-right: 20px;
     height: 100%;
 }
-
-.category-list {
-    background-color: #fff;
-    position: absolute;
-    bottom: -245px;
-    right: 110px;
-    z-index: 10;
+.category-item{
+    line-height: 1em !important;
+    font-size: 2rem !important;
 }
-.category-list::before{
-    position: absolute;
+.list-group-item {
+    padding: 0 !important;
+}
+
+.categoy-item {
     background-color: #fff;
-    width: 50px;
-    height: 50px;
 }
 
 .left-header--logo img {
@@ -138,7 +193,6 @@ export default {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
-    overflow: hidden;
     position: relative;
 }
 
@@ -146,14 +200,14 @@ export default {
     height: 100%;
 }
 
-.left-header--control ul li {
+.left-header--item {
     display: flex;
     height: 100%;
     text-align: center;
     align-items: center;
 }
 
-.left-header--control ul li a {
+.left-header--item a {
     height: 100%;
     width: 100%;
     display: flex;
@@ -164,8 +218,7 @@ export default {
     line-height: 50px;
     transition: all ease-in 0.2s;
 }
-
-.left-header--control ul li a:hover {
+.left-header--item a:hover {
     color: var(--primary-color-bold);
     -webkit-transform: translateY(-10px);
 }
@@ -268,6 +321,7 @@ input:focus {
     align-items: center;
     height: 100%;
     background-color: var(--primary-color);
+    position: relative;
 }
 
 .right-header {
@@ -293,12 +347,81 @@ input:focus {
     color: var(--primary-color-bold) !important;
     transition: background-color ease-in 0.1s;
 }
-
+.user-info{
+    display: flex;
+    align-items: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 45px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+    color: var(--primary-color-bold);
+    transition: all ease-in 0.1s;
+    cursor: pointer;
+}
+.user-info:hover{
+    color: var(--primary-color-hover-bold);
+}
+.user-info:hover .user-action-list{
+    display: block;
+    opacity: 1;
+}
+.user-action-list::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid var(--primary-color-bold);
+    top: -24px;
+    position: absolute;
+    right: calc(45%);
+}
 .register-link:hover {
     background-color: var(--primary-color-bold);
     color: #fff !important;
 }
-
+.user-action{
+    position: absolute;
+    background-color: #fff;
+    width: 170px;
+    top: 90%;
+    font-size: 16px;
+}
+.user-action-list{
+    opacity: 0;
+    list-style: none;
+    padding: 0 5px;
+    margin: 0;
+    background-color: #fff;
+    position: absolute;
+    top: 90%;
+    width: 200px;
+    right: 0;
+    display: none;
+    font-size: 1rem;
+    color: var(--primary-color-bold) !important;
+    z-index: 1;
+    border: 1px solid var(--primary-color-bold);
+}
+.user-action-item{
+    text-align: center;
+    border-top: 1px solid var(--primary-color-bold);
+}
+.user-action-item:first-of-type{
+    border-top:none ;
+}
+.user-action-item a{
+    color: var(--primary-color-bold);
+}
+.user-action-item a:hover{
+    color: var(--primary-color-hover-bold);
+    cursor: pointer;
+}
 .language-control {
     display: flex;
     -webkit-box-align: center;
