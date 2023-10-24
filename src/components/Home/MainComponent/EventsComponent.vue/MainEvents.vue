@@ -1,16 +1,13 @@
 <template>
-<section style="display: flex; margin-bottom: 20px;">
-    <div class="main__container">
-        <div class="main__container--inner">
-        <div class="event__list"  >
-            <div class="event__item--inner" v-for="category in categories">
+        <div class="event__list row"  >
+            <div class="event__item--inner col-sm-12 col-xl-4 col-lg-6" v-for="event in events">
             <div class="event__item">
                     <b-card  
               class="mb-3 event__item--info"
               >
               <div class="event__item--img" style="position: relative;">
-                  <b-card-img :src="category.img" alt="Image" class="rounded-0"></b-card-img>
-                  <router-link to="/about">
+                  <b-card-img :src="event.img" alt="Image"></b-card-img>
+                  <router-link :to="{ path: '/event/detail', query: { id: event.id } }">
                 <div class="ticket__button--modal">
                     <button class="ticket__button">
                         <h3 class="ticket__button--title">
@@ -20,22 +17,16 @@
                 </div>
             </router-link>
               </div>
-              <b-card-tittle>{{category.name}}</b-card-tittle>
-              <b-card-sub-title>{{ category.date }}</b-card-sub-title>
-              <b-card-text class="event__item--type">
-                {{category.type}}
-              </b-card-text>
+              <b-card-sub-title>{{ event.date }}</b-card-sub-title>
+              <b-card-sub-title class="event-name">{{event.name}}</b-card-sub-title>
       </b-card>
             </div>
             </div>
         </div>
-    </div>
-    </div>
-</section>
 </template>
 <script>
 export default{
-    props:['categories'],
+    props:['events']
 }
 </script>
 <style scoped>
@@ -51,6 +42,10 @@ export default{
     padding: 0 !important;
     border-radius: 5px 5px !important;
 }
+.card-subtitle{
+    margin: 5px 5px !important;
+    font-size: 1.2rem !important;
+}
 .event__list{
     padding: 0;
     margin: 0;
@@ -58,8 +53,11 @@ export default{
     justify-content: flex-start;
     flex-wrap: wrap;
 }
-.event__item--inner{
-    width: 33.33%;
+.event-name{
+    margin: 5px 5px !important;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--text-color) !important;
 }
 .event__item{
     width: 100%;
@@ -69,11 +67,12 @@ export default{
     margin: auto !important;
 }
 .event__item--info{
-    height: 95%;
+    height: 100%;
     margin: auto;
     border: none;
-    width: 95%;
+    width: 100%;
     position: relative;
+    margin-bottom: 5px;
 }
 .event__item--img{
     overflow: hidden;
@@ -133,26 +132,6 @@ export default{
 }
 .ticket__button--title {
     font-size: 1.6em;
-}
-@media only screen and (max-width: 1290px) {
-    .event__item{
-        width: 47%;
-}
-}
-@media only screen and (max-width: 960px) {
-    .event__item{
-        width: 100%;
-}
-}
-@media only screen and (max-width: 769px) {
-    .event__item{
-    width: 100%;
-}
-}
-@media only screen and (max-width: 577px) {
-    .event__item{
-    width: 100%;
-}
 }
 
 </style>

@@ -22,7 +22,6 @@ body{
     font-family: "Candara" !important;
     font-weight: normal;
     min-height: 100%;
-    overflow: auto;
     scroll-behavior: smooth;
     box-sizing: border-box;
 }
@@ -30,8 +29,7 @@ body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #fff
-  
+  background: #fff;
 }
 :root {
     --primary-color: #FDF9F7;

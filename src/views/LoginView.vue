@@ -23,13 +23,13 @@
           <b-form-group id="password">
             <b-form-label class="input-label-login" label-for="password">Mật Khẩu</b-form-label>
             <div class="input-password">
-              <b-form-input v-if="showPassword" class="form-control-login" :type="'password'" id="password"
+              <b-form-input v-if="!showPassword" class="form-control-login" :type="'password'" id="password"
                 v-model="loginForm.password" placeholder="Nhập mật khẩu" required>
               </b-form-input>
               <b-form-input v-else class="form-control-login" :type="'text'" id="password"
                 v-model="loginForm.password" placeholder="Nhập mật khẩu" required>
               </b-form-input>
-              <b-icon v-if="showPassword" class="show-password-btn" @click="showPassword = !showPassword"
+              <b-icon v-if="!showPassword" class="show-password-btn" @click="showPassword = !showPassword"
                 icon="eye"></b-icon>
                 <b-icon v-else class="show-password-btn" @click="showPassword = !showPassword"
                 icon="eye-slash"></b-icon>
@@ -82,8 +82,14 @@ export default {
   },
   methods: {
     onSubmit(event) {
-      event.preventDefault()
-      alert(JSON.stringify(this.form))
+      if(this.loginForm.email == "tanmusic0210@gmail.com"){
+        if(this.loginForm.password == "02102001")
+        {
+          
+        }else{
+
+        }
+      }
     },
     onReset(event) {
       event.preventDefault()
