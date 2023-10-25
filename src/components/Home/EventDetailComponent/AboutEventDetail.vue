@@ -2,9 +2,7 @@
     <div class="aboutEvent">
         <ticket-list :currentEvent="currentEvent" :listTickets="listTickets"></ticket-list>
         <event-detail :currentEvent="currentEvent"></event-detail>
-        <section id="ticketPrice">
-            price
-        </section>
+        <ticket-price :currentEvent="currentEvent"></ticket-price>
         <section id="eventFAQ">
             faq
         </section>
@@ -16,11 +14,12 @@
 <script>
 import TicketList from '@/components/Home/EventDetailComponent/AboutEventComponent/TicketList.vue'
 import EventDetail from '@/components/Home/EventDetailComponent/AboutEventComponent/EventDetail.vue'
+import TicketPrice from '@/components/Home/EventDetailComponent/AboutEventComponent/TicketPrice.vue'
 export default {
   name: 'EventDetailView',
   props:['currentEvent','listTickets'],
   components:{
-    TicketList,EventDetail
+    TicketList,EventDetail,TicketPrice
   }
 }
 </script>

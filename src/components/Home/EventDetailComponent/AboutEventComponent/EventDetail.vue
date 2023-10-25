@@ -6,7 +6,7 @@
                     <h1 class="black-heading">EVENT DETAILS</h1>
                     <div class="row">
                         <div id="activityContent" class="col-lg-9 col-md-9 col-sm-12 col-xs-12 col-12">
-                            <div style="justify-content: center;">
+                            <div style="justify-content: center;letter-spacing: 1px;">
                                 <p>Euphony: Harmony of Sounds là sự hợp tác giữa cộng đồng người Hoa tại Republic
                                     Polytechnic
                                     Concerto và đàn dây
@@ -37,8 +37,7 @@
                                     <ul class="additional-button list-unstyled p-0">
                                         <li>
                                             <a id="md-viewMap" href="#"
-                                                class="btn btn-outline-primary w-100 mb-3 action-btn viewMaps">View
-                                                Seatmap</a>
+                                                class="btn btn-outline-primary w-90 mb-3 action-btn viewmap-btn">Xem vị trí chỗ ngồi</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -80,4 +79,16 @@ p {
     background-color: #f9f2de;
     color: #262626!important;
 }
+.viewmap-btn{
+    color: var(--primary-color-bold) !important;
+    border-color: var(--primary-color-bold) !important;
+    width: 90%;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+}
+.viewmap-btn:hover{
+    background-color: var(--primary-color-bold) !important;
+    color: #fff !important;
+}
+
 </style> 
