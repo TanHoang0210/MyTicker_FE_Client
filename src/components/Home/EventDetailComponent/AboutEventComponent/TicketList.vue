@@ -38,7 +38,6 @@
                                                                             variant="primary" class="button-event ">Mua
                                                                             vé</b-button>
 
-
                                                                         <b-button
                                                                             v-else-if="ticket.status == 'active' && ticket.quantity <= 0"
                                                                             variant="secondary"

@@ -6,7 +6,7 @@
                     <h1 class="black-heading">EVENT DETAILS</h1>
                     <div class="row">
                         <div id="activityContent" class="col-lg-9 col-md-9 col-sm-12 col-xs-12 col-12">
-                            <div style="justify-content: center;letter-spacing: 1px;">
+                            <div style="justify-content: center;letter-spacing: 1px; font-size: 18px;">
                                 <p>Euphony: Harmony of Sounds là sự hợp tác giữa cộng đồng người Hoa tại Republic
                                     Polytechnic
                                     Concerto và đàn dây
@@ -36,8 +36,10 @@
                                     class="col-md-12 col-sm-12 col-xs-12 d-none d-sm-block text-center pb-3">
                                     <ul class="additional-button list-unstyled p-0">
                                         <li>
-                                            <a id="md-viewMap" href="#"
-                                                class="btn btn-outline-primary w-90 mb-3 action-btn viewmap-btn">Xem vị trí chỗ ngồi</a>
+                                            <button
+                                            v-on:click="modalShow = !modalShow"
+                                             id="md-viewMap"
+                                                class="btn btn-outline-primary w-90 mb-3 action-btn viewmap-btn">Xem vị trí chỗ ngồi</button>
                                         </li>
                                     </ul>
                                 </div>
@@ -55,10 +57,22 @@
                 </div>
             </div>
         </div>
+        <event-seat-map :modalShow="modalShow"></event-seat-map>
     </section>
 </template>
 <script>
-
+import EventSeatMap from '@/components/Home/EventDetailComponent/EventSeatMap.vue'
+    export default{
+        data(){
+            return{
+                modalShow:false
+            }
+        },
+        props:['modalShow'],
+        components:{
+            EventSeatMap
+        }
+    }
 </script>
 <style>
 #sponsorSidebar {

@@ -3,7 +3,7 @@
     <div>
       <Header />
     </div>
-    <main class="main">
+    <main class="main" style="margin-bottom: 30px;">
       <div class="main__container">
         <div class="home__container">
           <section class="event-banner adp">
@@ -50,8 +50,8 @@
                           :key="item"
                           v-on:click="myChoice(index)"
                           v-bind:class="{activeAction: index == currentAction }"
-                           class="event-nav-item-link" href="#eventDetail">
-                            {{ item }}
+                           class="event-nav-item-link" :href="item.id">
+                            {{ item.name}}
                           </a>
                         </li>
                       </ul>
@@ -71,7 +71,8 @@
           </section>
           <about-event-detail
            :currentEvent="currentEvent"
-           :listTickets="listTickets">
+           :listTickets="listTickets"
+           :modalShow="modalShow">
           </about-event-detail>
         </div>
       </div>
@@ -281,18 +282,31 @@
 import Header from '@/components/Header.vue'
 import HomeFooter from '@/components/Home/HomeFooter.vue'
 import AboutEventDetail from '../components/Home/EventDetailComponent/AboutEventDetail.vue'
+import EventSeatMap from '../components/Home/EventDetailComponent/EventSeatMap.vue'
 export default {
   name: 'EventDetailView',
   components: {
-    Header, HomeFooter,AboutEventDetail
+    Header, HomeFooter,AboutEventDetail,EventSeatMap
   },
   data() {
     return {
       eventActions:[
-        'Thông tin chi tiết',
-        'Giá vé',
-        'Chính sách đổi trả',
-        'Nội quy sự kiện',
+        {
+          id:"#eventDetail",
+          name:'Thông tin chi tiết'
+        },
+        {
+          id:"#ticketPrice",
+          name:'Giá vé'
+        },
+        {
+          id:"#eventRefund",
+          name:'Chính sách đổi trả'
+        },
+        {
+          id:"#eventPolicy",
+          name:'Nội quy sự kiện'
+        },
       ],
       currentAction: 0,
       currentEvent: {
